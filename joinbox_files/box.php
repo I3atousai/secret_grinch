@@ -69,7 +69,7 @@ session_start();
                 $message .=  "\$" . 'box_id_to_add =' . $box_id_to_add . ";\n\n";
                 $message .= file_get_contents('../joinbox_files/template_second_half.php',TRUE);
 
-                $myfile = fopen("join_". $_SESSION['box']['box_name'] . ".php" , "w") or die("Unable to open file!");
+                $myfile = fopen("join_". $_SESSION['box']['box_name'] . ".php"  , "w") or die("Unable to open file!");
                 fwrite($myfile, $message);
                 fclose($myfile);
 

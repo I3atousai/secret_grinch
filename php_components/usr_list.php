@@ -1,7 +1,7 @@
 <?php 
 // sql updates 
     include('../php_components/usr_list_upd.php');
-    ?>
+    ?>   //--add box closing, link to join, shuffle buttons here
         <p class="founder_name mb8"><?php echo $_SESSION['auth']['nick'] ?></p>
         
     <?php
