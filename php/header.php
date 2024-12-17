@@ -12,7 +12,7 @@
                 <a href="../php/usr_page.php">Моя Страница</a>
                <?php  
                ?> 
-               <a href="../php/box.php">Создать Коробку</a>
+               <a href="../joinbox_files/box.php">Создать Коробку</a>
               <?php  
             }
             else {

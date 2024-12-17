@@ -33,8 +33,7 @@ session_start();
             </div>
 
         </div>
-        <?php include_once('../php/footer.php') ;
-        unset($_SESSION['sql_del'])?>
+        <?php include_once('../php/footer.php')?>
     </div>
 </body>
 </html>

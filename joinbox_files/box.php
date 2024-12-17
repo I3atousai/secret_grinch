@@ -20,7 +20,7 @@ session_start();
         <?php include_once('../php/header.php') ?>
         
 
-<form id="form_box" class="mb60" method="POST" action="../php/box.php">
+<form id="form_box" class="mb60" method="POST" action="../joinbox_files/box.php">
           <input required class="box_input mb8" type="text" name="box_name" placeholder="Введите Имя Коробки"/>
           <label for="box_name"></label>
           <br>
@@ -48,9 +48,9 @@ session_start();
                 // echo"<pre>";
                 // print_r($data_box);
                 // echo("</pre>");
-                
+                $box_added = LB::get_by_name($_POST["box_name"]);
                 $_SESSION['box'] = [
-                    'box_id' => LB::get_by_name($_POST["box_name"])["id"],
+                    'box_id' => $box_added["id"],
                     'box_type' => 'logged',
                     'box_name' => $_POST["box_name"],
                     'user_amount' => $_POST["user_amount"],
@@ -58,6 +58,22 @@ session_start();
                     'founder_participation' => $_POST['im_in']
                 ];
                 setcookie('user_amount', $_POST["user_amount"]);
+                // code above creates logged_box sql item
+
+
+                $join_hash = $box_added["join_hash"];
+                  
+                $box_id_to_add = $_SESSION['box']['box_id'];
+
+                $message = file_get_contents('../joinbox_files/template_first_half.php',TRUE);
+                $message .=  "\$" . 'box_id_to_add =' . $box_id_to_add . ";\n\n";
+                $message .= file_get_contents('../joinbox_files/template_second_half.php',TRUE);
+
+                $myfile = fopen("join_". $_SESSION['box']['box_name'] . ".php" , "w") or die("Unable to open file!");
+                fwrite($myfile, $message);
+                fclose($myfile);
+
+
                 header("Location:../php/inner_box.php");
             }
             elseif(isset($_POST["submit"]) and $_POST['box_type'] == 'quick') {

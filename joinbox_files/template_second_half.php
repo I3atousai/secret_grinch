@@ -1,8 +1,9 @@
 if (!isset($_SESSION['auth'])) {
             echo "Только зарегистрированные пользлватели могут присоеденяться к коробкам";
         }
+        <!-- add if statement that checks if get value is ok -->
         else {
-
+                
             $data_user_added = [
                 "user_id"=> $_SESSION['auth']['logged_user_id'],
                 "box_id"=> $box_id_to_add
