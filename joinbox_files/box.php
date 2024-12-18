@@ -39,6 +39,7 @@ session_start();
             if (isset($_POST["submit"]) and $_POST['box_type'] == "logged") {
                 require_once "../model/Logged_Box.php";
                 $hash_to_add = password_hash($_POST["box_name"], PASSWORD_DEFAULT);
+                $hash_to_add = str_replace( array( '\'', '"',',' , ';', '<', '>','$', '.', '/', '\\', '|' ), '', $hash_to_add);
                 $data_box = [
                     "name" => $_POST["box_name"],
                     "founder_id" => $_SESSION['auth']["logged_user_id"],
@@ -69,7 +70,7 @@ session_start();
                 $message .=  "\$" . 'box_id_to_add =' . $box_id_to_add . ";\n\n";
                 $message .= file_get_contents('../joinbox_files/template_second_half.php',TRUE);
 
-                $myfile = fopen("join_". $_SESSION['box']['box_name'] . ".php"  , "w") or die("Unable to open file!");
+                $myfile = fopen("join_". $_SESSION['box']['box_name'] . ".php" , "w") or die("Unable to open file!");
                 fwrite($myfile, $message);
                 fclose($myfile);
 

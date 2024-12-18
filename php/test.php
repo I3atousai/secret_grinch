@@ -16,13 +16,9 @@ session_start();
     <div class="background">
         <?php include_once('../php/header.php') ?>
         <?php 
-        $message = "ddddd";
-        $myfile = fopen("join_.php" , "w") or die("Unable to open file!");
-               
-        // touch('/home/gor/test.txt') or die("Unable to open file!");
-        fwrite($myfile, $message);
-                fclose($myfile); 
                 ?>
+                    <!-- this worked -->
+                <a href="../php/index.php?fugu=stream">index</a>
         <?php include_once('../php/footer.php')?>
     </div>
 </body>

@@ -23,9 +23,7 @@ document.getElementById('btn_submit').onclick = function close_box() {
 
   }
 
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
+
 
 function saveName(name, tag_id) {
     // console.log(name.value);
