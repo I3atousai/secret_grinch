@@ -37,7 +37,8 @@
             <div id="snow-globe">
 
                 <div id="usr_desc">
-                    <img id="PFP" src="<?php echo $_SESSION['auth']["PFP_path"] ?>" alt="pfp">
+                    <img id="PFP" src="<?php  echo $_SESSION['auth']["profile_picture_path"] ?>" alt="pfp">
+                    <!-- <img id="PFP" src="../PFPictures/def_avatar.jpg" alt="pfp"> -->
                      
                     <?php echo "<h4 id =\"name\">" .  $nick . "</h4>"?>
                 </div>
@@ -49,6 +50,9 @@
         $get = [
             "lb.founder_id",
             "lb.name",
+            "lb.join_hash",
+            "lb.join_link",
+            "lb.closed_or_oped",
             "lb.id"
         ];
         $tables = ["logged_box as lb"];
@@ -71,16 +75,20 @@
         <?php
         
         for ($i=0; $i < $box_amount; $i++) { 
+            $join_link = "../joinbox_files/join_" . $boxes_arr[$i]['join_link'];
             // sql updates 
+            include('../php_components/box_user_info_access.php');
             include('../php_components/usr_list_upd.php');
+
             ?>
                 <div class="box">
                     <div class="box_top"></div>
                     <form class="box_bottom" action="../php/usr_page.php" method="POST">
                         <h3>
                             <?php echo $boxes_arr[$i]["name"];?>
+                            
                         </h3>
-                        <?php include('../php_components/box_user_info_access.php') ?>
+                        <?php  ?>
                         <h3 class="usr_count">
                             <?php echo "Кол.-во участников: " . $user_amount ?>
                         </h3>

@@ -55,7 +55,7 @@ Guard::only_guest();
               'logged_user_id' =>$usr_data['id'],
               'password' => $_POST['password'],
               'nick' => $_POST['nick'],
-              'PFP_path' => $usr_data["profile_pic_path"]
+              'profile_picture_path' => $usr_data["profile_pic_path"]
             ];
 
           header( 'Location:../php/usr_page.php');

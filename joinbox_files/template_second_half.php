@@ -1,23 +1,38 @@
 if (!isset($_SESSION['auth'])) {
             echo "Только зарегистрированные пользлватели могут присоеденяться к коробкам";
         }
-        //add if statement that checks if get value is ok
         else {
+            if ($_GET['join_hash'] != $join_hash) {
+                echo "Ссылка повреждена";
+            }
+            else {
                 
-            $data_user_added = [
-                "user_id"=> $_SESSION['auth']['logged_user_id'],
-                "box_id"=> $box_id_to_add
-            ];
-            UALB::add($data_user_added);  
+                $get = [
+                    "ualb.box_id",
+                    "ualb.user_id"
+                ];
+                $tables = ["users_and_logged_boxes as ualb"];
+                $params = [
+                    ["ualb.user_id", "=", $_SESSION['auth']['logged_user_id'], "system", "AND"],
+                    ["ualb.box_id", "=", $box_id_to_add, "system"]
+                ];
+    
+                if (count(UALB::query(get:$get, tables:$tables, params:$params)) >= 1) {
+                    echo "пользователь уже в коробке";
+                }
+                else {
+                    
+                    $data_user_added = [
+                        "user_id"=> $_SESSION['auth']['logged_user_id'],
+                        "box_id"=> $box_id_to_add
+                    ];
+                    UALB::add($data_user_added);  
+                }
+            }
         }
         ?>
         <?php include_once('../php/footer.php') ;
         unset($_SESSION['sql_del'])?>
     </div>
-    <!-- work with this -->
-    <!-- <script src="../js/template.js"></script>
-    <script>
-            setFounder('<?php //echo $boxes_arr['join_hash'] ?>')
-    </script> -->
 </body>
 </html>

@@ -1,8 +1,13 @@
 <?php 
 // sql updates 
     include('../php_components/usr_list_upd.php');
-    ?>   //--add box closing, link to join, shuffle buttons here
-        <p class="founder_name mb8"><?php echo $_SESSION['auth']['nick'] ?></p>
+    ?>   
+        <p class="founder_name mb8"><?php echo $_SESSION['auth']['nick'] ?><span>
+        <a href="<?php echo ($join_link . "?join_hash=" . $boxes_arr[$i]['join_hash']) ?>">📜</a>
+        <a href="">🎲</a>
+        <a href="">✔️❌</a>
+    
+        </span></p>
         
     <?php
     for ($u=0; $u < $user_amount; $u++) { 
