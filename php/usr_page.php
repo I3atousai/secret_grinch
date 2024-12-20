@@ -4,7 +4,6 @@
     if (isset($_POST["submit_exit"])) {
         header("Location:../php/index.php");
         unset($_SESSION['auth']);
-        
     }
 
     require_once "../model/Users.php";
@@ -26,6 +25,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/usr_page.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <title>My Page</title>
 </head>
 <body>
@@ -37,16 +38,23 @@
             <div id="snow-globe">
 
                 <div id="usr_desc">
+                    <input type="file" id="avatar_input">
                     <img id="PFP" src="<?php  echo $_SESSION['auth']["profile_picture_path"] ?>" alt="pfp">
-                    <!-- <img id="PFP" src="../PFPictures/def_avatar.jpg" alt="pfp"> -->
                      
-                    <?php echo "<h4 id =\"name\">" .  $nick . "</h4>"?>
+                    <h4 id="user_name" class="name"><?php echo $nick ?></h4>
+                    <button id="commit_change_name" onclick="toggleVisibilityChange()" type="button">Изменить</button>
+                    <form id="name_form" class="hidden" action="../php/usr_page.php" method="post">
+                        <input class="name" type="text" name="change_name" value="<?php echo $nick ?>"  id="change_name"/>
+                        <input type="submit" onclick="toggleVisibilityChange(), push_cahnges()" value="Подтвердить">
+                    </form>
                 </div>
                 
                 <h3 id="my_boxes">Мои коробки </h3>
             </div>
 
     <?php  
+
+    // getting boxes owned by user
         $get = [
             "lb.founder_id",
             "lb.name",
@@ -68,14 +76,40 @@
                 echo $th->getMessage();
                 echo "<br>";
             }
-       
+
+// getting boxes user participates in
+        $get = [
+            'ualb.user_id',
+            "lb.founder_id",
+            "lb.name",
+            "lb.id"
+        ];
+        $tables = ["logged_box as lb",
+                    "users_and_logged_boxes as ualb", ];
+        $params = [
+            ["lb.id", "=", "ualb.box_id", "system", "AND"],
+            ["ualb.user_id", "=", $usr_id, "system", "AND"],
+            ["lb.founder_id", "!=", $usr_id, "system"],
+        ];
+    
+        try {
+             $boxes_arr_part = LB::query(get:$get, tables:$tables, params:$params, unique:true) ;
+            $box_amount_part = count($boxes_arr_part);
+            setcookie('box_amount_part', $box_amount_part);
+            } catch (\Throwable $th) {
+                echo $th->getMessage();
+                echo "<br>";
+            }
+       $boxes_arr =array_merge($boxes_arr, $boxes_arr_part);
     ?>
     <div id="box_wrap">
 
         <?php
         
-        for ($i=0; $i < $box_amount; $i++) { 
-            $join_link = "../joinbox_files/join_" . $boxes_arr[$i]['join_link'];
+        for ($i=0; $i < $box_amount+$box_amount_part ; $i++) { 
+            if (isset($boxes_arr[$i]['join_link'])) {
+                $join_link = "../joinbox_files/join_" . $boxes_arr[$i]['join_link'];
+            }
             // sql updates 
             include('../php_components/box_user_info_access.php');
             include('../php_components/usr_list_upd.php');
@@ -83,7 +117,8 @@
             ?>
                 <div class="box">
                     <div class="box_top"></div>
-                    <form class="box_bottom" action="../php/usr_page.php" method="POST">
+                    <div class="box_bottom">
+
                         <h3>
                             <?php echo $boxes_arr[$i]["name"];?>
                             
@@ -96,9 +131,14 @@
                                                                                             <!-- User list tag insertion here -->
                             <div class="usr_list" id="<?php echo("box_users_" . $i) ?>" > <?php include('../php_components/usr_list.php') ?> </div>  
                         </input>
-                        <input for="box_bottom" class="del_button" type="submit" value="Удалить" name="<?php echo "delete_box" . $i ?>"> </input>
+                        <?php
+            if ($_SESSION['auth']['logged_user_id'] == $boxes_arr[$i]['founder_id']) { ?> 
+                 <form class="delete_form"  action="../php/usr_page.php" method="POST">
+                <input for="box_bottom" class="del_button" type="submit" value="Удалить" name="<?php echo "delete_box" . $i ?>"> </input>
+                <?php
+            }  ?>
                     </form>
-                   
+                   </div>
 
                 </div>
                 <?php 

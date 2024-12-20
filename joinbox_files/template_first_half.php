@@ -1,6 +1,7 @@
 <?php 
 session_start();
 require_once "../model/UALB.php";   
+require_once "../model/Logged_Box.php";   
 ?>
 
 <!DOCTYPE html>

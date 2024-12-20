@@ -38,48 +38,64 @@ session_start();
         <?php   
             if (isset($_POST["submit"]) and $_POST['box_type'] == "logged") {
                 require_once "../model/Logged_Box.php";
-                $join_link = $_POST["box_name"]  . (rand(1,99999)) .".php" ;
-                $hash_to_add = password_hash($_POST["box_name"], PASSWORD_DEFAULT);
-                $hash_to_add = str_replace( array( '\'', '"',',' , ';', '<', '>','$', '.', '/', '\\', '|' ), '', $hash_to_add);
-                $data_box = [
-                    "name" => $_POST["box_name"],
-                    "founder_id" => $_SESSION['auth']["logged_user_id"],
-                    "join_hash " => $hash_to_add,
-                    "join_link" => $join_link
+
+                    $join_link = $_POST["box_name"]  . (rand(1,99999)) .".php" ;
+                    $hash_to_add = password_hash($_POST["box_name"], PASSWORD_DEFAULT);
+                    $hash_to_add = str_replace( array( '\'', '"',',' , ';', '<', '>','$', '.', '/', '\\', '|' ), '', $hash_to_add);
+                    $data_box = [
+                        "name" => $_POST["box_name"],
+                        "founder_id" => $_SESSION['auth']["logged_user_id"],
+                        "join_hash " => $hash_to_add,
+                        "join_link" => $join_link
+                        ];
+                    LB::add($data_box);
+                    // echo"<pre>";
+                    // print_r($data_box);
+                    // echo("</pre>");
+                    
+                    $get = [
+                        "lb.founder_id",
+                        "lb.name",
+                        "lb.join_hash",
+                        "lb.join_link",
+                        "lb.closed_or_oped",
+                        "lb.id"
                     ];
-                LB::add($data_box);
-                // echo"<pre>";
-                // print_r($data_box);
-                // echo("</pre>");
-                $box_added = LB::get_by_name($_POST["box_name"]);
-                $_SESSION['box'] = [
-                    'box_id' => $box_added["id"],
-                    'box_type' => 'logged',
-                    'box_name' => $_POST["box_name"],
-                    'user_amount' => $_POST["user_amount"],
-                    'founder_id' => $_SESSION['auth']["logged_user_id"],
-                    'founder_participation' => $_POST['im_in']
-                ];
-                setcookie('user_amount', $_POST["user_amount"]);
-                // code above creates logged_box sql item
-
-
-                $join_hash = $box_added["join_hash"];
-                  
-                $box_id_to_add = $_SESSION['box']['box_id'];
-
-                $message = file_get_contents('../joinbox_files/template_first_half.php',TRUE);
-                $message .=  "\$" . 'box_id_to_add =' . $box_id_to_add . ";\n";
-                $message .=  "\$" . 'join_hash ="' . $join_hash . "\";\n\n";
-                $message .= file_get_contents('../joinbox_files/template_second_half.php',TRUE);
-
-                $myfile = fopen("join_". $join_link , "w") or die("Unable to open file!");
-                fwrite($myfile, $message);
-                fclose($myfile);
-
-
-                header("Location:../php/inner_box.php");
-            }
+                    $tables = ["logged_box as lb"];
+                    $params = [
+                        ["lb.join_link", "=", $join_link, "value"]
+                    ];
+                
+                    
+                    $box_added = LB::query(get:$get, tables:$tables, params:$params, fetch_mode:"one", unique:true) ;
+                    $_SESSION['box'] = [
+                        'box_id' => $box_added["id"],
+                        'box_type' => 'logged',
+                        'box_name' => $_POST["box_name"],
+                        'user_amount' => $_POST["user_amount"],
+                        'founder_id' => $_SESSION['auth']["logged_user_id"],
+                        'founder_participation' => $_POST['im_in']
+                    ];
+                    setcookie('user_amount', $_POST["user_amount"]);
+                    // code above creates logged_box sql item
+        
+        
+                    $join_hash = $box_added["join_hash"];
+                      
+                    $box_id_to_add = $_SESSION['box']['box_id'];
+        
+                    $message = file_get_contents('../joinbox_files/template_first_half.php',TRUE);
+                    $message .=  "\$" . 'box_id_to_add =' . $box_id_to_add . ";\n";
+                    $message .=  "\$" . 'join_hash ="' . $join_hash . "\";\n\n";
+                    $message .= file_get_contents('../joinbox_files/template_second_half.php',TRUE);
+        
+                    $myfile = fopen("join_". $join_link , "w") or die("Unable to open file!");
+                    fwrite($myfile, $message);
+                    fclose($myfile);
+        
+        
+                    header("Location:../php/inner_box.php");
+                }
             elseif(isset($_POST["submit"]) and $_POST['box_type'] == 'quick') {
 
                 $_SESSION['box'] = [

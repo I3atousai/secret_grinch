@@ -42,11 +42,21 @@ main {
     border-radius:40%;
 }
 
-#name {
-    color: var(--text_color);
+.name {
+    color: var(--text_color) ;
     margin-left: 1rem;
-    font-size:3.5rem;
+    font-size:3.5rem ;
 }
+#name_form{
+    font-size: 2rem;
+    display: inline;
+}
+#change_name{
+    font-weight: bold;
+    max-width: 350px;
+    background-color: transparent;
+}
+
 /* ПОРАБОТАЙ С ЦВЕТОМ КНОПКИ */
 #exit {
     position:sticky;
@@ -119,6 +129,20 @@ box-shadow:inset 0px 5px 5px 0px rgba(92, 92, 92, 0.671);
     margin-bottom: 5%;
 }
 
+.config_box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.list_config_button{
+    background-color: var(--add_color_1);
+}
+
+.shuffle_form{
+    display: inline;
+}
+
 .usr_count{
     font-size: 0.8rem !important;
     margin-left: 5%;
@@ -130,7 +154,6 @@ box-shadow:inset 0px 5px 5px 0px rgba(92, 92, 92, 0.671);
     font-weight: bold;
     padding: 5px;
     margin-bottom: 15%;
-    place-self: center;
 }
 .del_button:hover{
     background-color: var(--add_color_3);
@@ -170,6 +193,12 @@ box-shadow:inset 0px 5px 5px 0px rgba(92, 92, 92, 0.671);
     text-align: center;
 }
 
+.delete_form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .del_user_button {
     display: inline;
     width: 1rem;
@@ -193,5 +222,9 @@ box-shadow:inset 0px 5px 5px 0px rgba(92, 92, 92, 0.671);
  hr {
      font-weight: 300;
     border: 1px solid black;
+}
+
+.hidden {
+    display: none !important;
 }
 

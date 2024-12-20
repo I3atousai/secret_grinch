@@ -14,9 +14,12 @@ session_start();
 </head>
 <body>
     <div class="background">
-        <?php include_once('../php/header.php') ?>
+        <?php include_once('../php/header.php');
+        echo $_POST['link'] . ' ' . $_POST['hell_of_a_ride']
+        ?>
         <div id="index_grid">
             <div class="describtion_box">
+                
                 <h2 class="mb16">Как это работает</h2>
                 <p>Создайте коробку, указав вид коробки, название коробки и количество участников</p>
             </div>

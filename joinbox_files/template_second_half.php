@@ -1,3 +1,4 @@
+
 if (!isset($_SESSION['auth'])) {
             echo "Только зарегистрированные пользлватели могут присоеденяться к коробкам";
         }
@@ -6,27 +7,31 @@ if (!isset($_SESSION['auth'])) {
                 echo "Ссылка повреждена";
             }
             else {
-                
-                $get = [
-                    "ualb.box_id",
-                    "ualb.user_id"
-                ];
-                $tables = ["users_and_logged_boxes as ualb"];
-                $params = [
-                    ["ualb.user_id", "=", $_SESSION['auth']['logged_user_id'], "system", "AND"],
-                    ["ualb.box_id", "=", $box_id_to_add, "system"]
-                ];
-    
-                if (count(UALB::query(get:$get, tables:$tables, params:$params)) >= 1) {
-                    echo "пользователь уже в коробке";
+                if (LB::get_one($box_id_to_add)['closed_or_oped'] == 0) {
+                    echo "Коробка закрыта, обратитесь к владельцу ссылки";
                 }
                 else {
-                    
-                    $data_user_added = [
-                        "user_id"=> $_SESSION['auth']['logged_user_id'],
-                        "box_id"=> $box_id_to_add
+                    $get = [
+                        "ualb.box_id",
+                        "ualb.user_id"
                     ];
-                    UALB::add($data_user_added);  
+                    $tables = ["users_and_logged_boxes as ualb"];
+                    $params = [
+                        ["ualb.user_id", "=", $_SESSION['auth']['logged_user_id'], "system", "AND"],
+                        ["ualb.box_id", "=", $box_id_to_add, "system"]
+                    ];
+        
+                    if (count(UALB::query(get:$get, tables:$tables, params:$params)) >= 1) {
+                        echo "пользователь уже в коробке";
+                    }
+                    else {
+                        
+                        $data_user_added = [
+                            "user_id"=> $_SESSION['auth']['logged_user_id'],
+                            "box_id"=> $box_id_to_add
+                        ];
+                        UALB::add($data_user_added);  
+                    }
                 }
             }
         }

@@ -96,7 +96,7 @@ $usr_data = Users::get_by_name($nickname);
                             'participants' => $participants
                         ];
                     unset($_SESSION['box']);
-                    header("Location:../php/quick_results.php");
+                    header("Location:../php/results.php");
                 }
         ?>
 

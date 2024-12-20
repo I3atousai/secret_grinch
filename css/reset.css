@@ -1,14 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:700|Pacifico');
+
 :root {
     --main_color: #008f47;
     --text_color: #008f47;
     --text_color_add: #b0000c;
     --add_color_1: #e4d8ca;
     --add_color_4: rgba(32, 32, 155, 0.863);
-    /* --add_color_1: #e4ceb3; */
-    /* --add_color_1: #e3c299; */
     --add_color_2: #b78e51;
     --add_color_3: #bd5563;
-    /* --add_color_3: #de4256; */
     --white: white;
   }
   
@@ -28,7 +27,6 @@
     display: none !important;
   }
 
-  @import url('https://fonts.googleapis.com/css?family=Montserrat:700|Pacifico');
 
 .background {
   position: fixed;
