@@ -25,6 +25,7 @@ session_start();
           <label for="box_name"></label>
           <br>
           <input min="3" max="40" required class="box_input mb8" type="number" name="user_amount" placeholder="Введите Количество Сант" />
+          <input class="box_input mb8" type="number" name="max_gift_cost" placeholder="Максимальная цена подарка"/>
           <br>
           <div id="radio_box" class="mb24">
               <input checked type="radio" name="box_type" id="logged" value="logged"><label for="logged">Обычная коробка</label>
@@ -46,7 +47,8 @@ session_start();
                         "name" => $_POST["box_name"],
                         "founder_id" => $_SESSION['auth']["logged_user_id"],
                         "join_hash " => $hash_to_add,
-                        "join_link" => $join_link
+                        "join_link" => $join_link,
+                        'max_gift_cost' => ($_POST['max_gift_cost']?$_POST['max_gift_cost']: null)
                         ];
                     LB::add($data_box);
                     // echo"<pre>";

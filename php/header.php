@@ -5,19 +5,19 @@
     <img id="grinch" src="../img/grinch.webp"; alt="grinch">
     <h2>Secret Grinch</h2>
     <nav>
-            <a href="../php/index.php">Главная Страница</a>
+            <a class="arial" href="../php/index.php">Главная Страница</a>
             <?php 
             if (isset($_SESSION['auth'])) {
                 ?> 
-                <a href="../php/usr_page.php">Моя Страница</a>
+                <a class="arial" href="../php/usr_page.php">Моя Страница</a>
                <?php  
                ?> 
-               <a href="../joinbox_files/box.php">Создать Коробку</a>
+               <a class="arial" href="../joinbox_files/box.php">Создать Коробку</a>
               <?php  
             }
             else {
                 ?>
-                <a href="../php/choice.php">Вход/регистрация</a>
+                <a class="arial" href="../php/choice.php">Вход/регистрация</a>
                 <?php
                 
             } ?>

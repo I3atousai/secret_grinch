@@ -13,5 +13,5 @@
         <a href="https://www.youtube.com"><i class="fab fa-youtube"></i></a>
 
     </div>
-    <p>© 2024-2024 Secret Grinch</p>
+    <p class="arial">© 2024-2024 Secret Grinch</p>
 </footer>

@@ -30,7 +30,7 @@
             ["id", "=", $boxes_arr[$i]["id"]]
         ];
     LB::delete($params_box);
-    unlink($join_link);
+    unlink( $join_link);
     header("Location:../php/usr_page.php");
     }
 ?>

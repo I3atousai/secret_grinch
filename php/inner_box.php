@@ -36,7 +36,7 @@ $usr_data = Users::get_by_name($nickname);
        
         ?>
         
-        <input onblur="saveName(this, <?php echo  $index ?>)" id="<?php echo "box_field_" . $index ?>" required class="box_input mb24" type="text" name="<?php echo $added_user_name ?>" placeholder="Введите Имя <?php echo $index ?> Участника"></input>
+        <input  onblur="saveName(this, <?php echo  $index ?>)" id="<?php echo "box_field_" . $index ?>" required class="box_input mb24 arial" type="text" name="<?php echo $added_user_name ?>" placeholder="Введите Имя <?php echo $index ?> Участника"></input>
         <br>
         <?php 
         } ?>

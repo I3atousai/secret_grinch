@@ -122,6 +122,7 @@ box-shadow:inset 0px 5px 5px 0px rgba(92, 92, 92, 0.671);
 }
 
 .box h3 {
+    line-height: 1rem;
     word-break: normal;
     place-self: center;
     text-align:center;

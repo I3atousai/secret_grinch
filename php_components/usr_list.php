@@ -4,7 +4,7 @@
     $founder_name = Users::get_one($boxes_arr[$i]['founder_id'])['name']
     ?>   
     <div class="config_box">
-        <p class="founder_name mb8"><?php echo $founder_name ?></p>
+        <p class="founder_name mb8 arial"><?php echo $founder_name ?></p>
             <?php 
             if ($_SESSION['auth']['logged_user_id'] == $boxes_arr[$i]['founder_id']) {
             ?>
@@ -49,7 +49,7 @@
         $box_user = Users::get_one($user_to_get);
                 ?>
             
-            <p><?php echo $box_user['name'] ?> 
+            <p class="arial"><?php echo $box_user['name'] ?> 
 
 <form action="../php/usr_page.php" method="post">
     <?php if ($_SESSION['auth']['logged_user_id'] == $boxes_arr[$i]['founder_id']) { ?>

@@ -59,6 +59,7 @@
             "lb.founder_id",
             "lb.name",
             "lb.join_hash",
+            "lb.max_gift_cost",
             "lb.join_link",
             "lb.closed_or_oped",
             "lb.id"
@@ -81,6 +82,7 @@
         $get = [
             'ualb.user_id',
             "lb.founder_id",
+            "lb.max_gift_cost",
             "lb.name",
             "lb.id"
         ];
@@ -102,8 +104,7 @@
             }
        $boxes_arr =array_merge($boxes_arr, $boxes_arr_part);
     ?>
-    <div id="box_wrap">
-
+    <div id="box_wrap" >
         <?php
         
         for ($i=0; $i < $box_amount+$box_amount_part ; $i++) { 
@@ -121,9 +122,13 @@
 
                         <h3>
                             <?php echo $boxes_arr[$i]["name"];?>
+                            <?php 
+                             if ($boxes_arr[$i]['max_gift_cost']) { ?>
+                                <span class="fs12"><?php echo "Максимальная цена подарка: " . $boxes_arr[$i]['max_gift_cost'] ?></span>
+                                
+                             <?php }  ?>
                             
                         </h3>
-                        <?php  ?>
                         <h3 class="usr_count">
                             <?php echo "Кол.-во участников: " . $user_amount ?>
                         </h3>
