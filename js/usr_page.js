@@ -37,6 +37,19 @@ let list_button_id = 'box_users_show_';
 let list_div_id = 'box_users_';
 
 function toggleVisibility(box_number) {
+  // unset notification, box_number_9999 button openes notification list
+  if (box_number == 9999) {
+      const formDataNoted = new FormData()
+  formDataNoted.append("noted", true)
+  $.ajax({
+    url: `../Service/unset_notification.php`,
+    method: "post",
+    processData: false,
+    contentType: false,
+    data: formDataNoted,
+    dataType: "json"
+})
+  }
   
   let element = document.getElementById('box_users_' + box_number);
     if (element.style.display === 'none') {
@@ -114,4 +127,34 @@ function push_cahnges() {
         data: formDataChange,
         dataType: "json"
     })
+}
+
+
+function del_user_number_(i, u, user_id,  box_id,) {
+  
+  const formDataDelUser = new FormData()
+  formDataDelUser.append("user_id", Number(user_id))
+  formDataDelUser.append("box_id", Number(box_id))
+
+
+  document.getElementById('user_number_'+String(i)+String(u)).classList.toggle('hidden')
+  document.getElementById('del_user_number_'+String(i)+String(u)).classList.toggle('hidden')
+  document.getElementById('hr_'+String(i)+String(u)).classList.toggle('hidden')
+  
+  $.ajax({
+      url: `../Service/del_usr_from_box.php`,
+      method: "post",
+      processData: false,
+      contentType: false,
+      data: formDataDelUser,
+      dataType: "json"
+  })
+}
+
+
+function work_modal(id_modal) {
+  const modal = document.getElementById(id_modal)
+  if (modal) {
+      modal.classList.toggle('active')
+  }
 }

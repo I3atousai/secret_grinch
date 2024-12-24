@@ -27,4 +27,19 @@ input {
     color:var(--text_color_add);
   }
 
+  footer {
+    width: 100%;
+    height: 3rem;
+    padding:10px 20px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    background-color: var(--add_color_3);
+    color: var(--add_color_1);
+    border-radius: 12px 12px 0 0;
+    position: absolute;
+    bottom: 0;
+}
   

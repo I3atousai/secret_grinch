@@ -15,6 +15,7 @@ $usr_data = Users::get_by_name($nickname);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/inner_box_logged.css">
     <title>Inner Box</title>
@@ -36,7 +37,8 @@ $usr_data = Users::get_by_name($nickname);
        
         ?>
         
-        <input  onblur="saveName(this, <?php echo  $index ?>)" id="<?php echo "box_field_" . $index ?>" required class="box_input mb24 arial" type="text" name="<?php echo $added_user_name ?>" placeholder="Введите Имя <?php echo $index ?> Участника"></input>
+        <input  onblur="saveName(this, <?php echo  $index ?>)" id="<?php echo "box_field_" . $index ?>" required class="box_input mb24 arial" 
+        type="text" name="<?php echo $added_user_name ?>" placeholder="Введите Имя <?php echo $index ?> Участника"></input>
         <br>
         <?php 
         } ?>

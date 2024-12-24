@@ -5,6 +5,10 @@ require_once "../model/UALB.php";
 require_once "../model/Users.php";
 require_once "../Service/Guard.php";
 Guard::only_user();
+
+if(isset($_POST['send_results'])) {
+    header("Location:../php/usr_page.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -68,19 +72,25 @@ Guard::only_user();
                     ?>
                 </section>
                 <section class="participants">
-                    <h2 class="mb32">Подопечный</h2>
-                    <?php 
-                        for ($i=0; $i < count($_SESSION["shuffle"]['participants']); $i++) { 
-                            ?>
-                                <p class="mb16 participant_name"><?php echo 
-                                $_POST['shuffle_box']? $_SESSION["shuffle"]['participants'][$i]['name']: $_SESSION["shuffle"]['participants'][$i] ?></p>
-                            <?php
-                        }
-                    ?>
+                    <div id="participant" class="blured">
+                        <h2  class="mb32">Подопечный</h2>
+
+                        <?php 
+                            for ($i=0; $i < count($_SESSION["shuffle"]['participants']); $i++) { 
+                                ?>
+                                    <p class="mb16 participant_name"><?php echo 
+                                    $_POST['shuffle_box']? $_SESSION["shuffle"]['participants'][$i]['name']: $_SESSION["shuffle"]['participants'][$i] ?></p>
+                                <?php
+                            }
+                        ?>
+                    
+                    </div>
                 </section>
-                <form action="../php/results.php" method="post">
-                        <input name="send_results" type="submit" value="Отправить письма Сантам"></input>
+                <form  action="../php/results.php" method="post">
+                        <input class="result_button" name="send_results" type="submit" value="Отправить письма Сантам"></input>
                 </form>
+                
+                <input class="result_button" name="send_results" type="button" onclick="reveal()" value="Показать Подопечных"></input>
 
                 <?php  
                $box_name = ($_SESSION["shuffle"]['santas'][0]['box_name']) ;
@@ -97,15 +107,17 @@ Guard::only_user();
                             $message .= file_get_contents('../mail/mail_to_santa_third.html',TRUE);
                             $message .=  $box_name ;
                             $message .= file_get_contents('../mail/mail_to_santa_fourth.html',TRUE);
-                            include("../Service/send_mail.php");
-                        } 
-                            unset($_SESSION['shuffle']);
-                            header("Location:../php/usr_page.php");
+                            // echo $message;
+                            // echo "<br>";
+                           include("../Service/send_mail.php");
+                        }  
+                        unset($_SESSION['shuffle']);
                     }
                 ?>
             </div>
         <?php include_once('../php/footer.php') ;
         ?>
     </div>
+    <script src="../js/results.js"></script>
 </body>
 </html>

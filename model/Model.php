@@ -170,7 +170,7 @@ abstract class Model
 
     }
     // SELECT (что взять...) FROM (таблицы ?JOIN?) (WHERE ключ оператор значение (лог оператор) ) (SORTED BY колонка тип сортировки) (LIMIT OFFSET)
-    public static function query(array $get, string $fetch_mode = "all", array $tables = [], array $params = [], array $sorted = [], int|null $limit = null, int|null $offset = null, bool $unique = true)
+    public static function query(array $get, string $fetch_mode = "all", array $tables = [], array $params = [], array $sorted = [], int|null $limit = null, int|null $offset = null, bool $unique = false)
     {
         try {
             $sql = "SELECT ";

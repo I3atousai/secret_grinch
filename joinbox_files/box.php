@@ -21,11 +21,11 @@ session_start();
         
 
 <form id="form_box" class="mb60" method="POST" action="../joinbox_files/box.php">
-          <input required class="box_input mb8" type="text" name="box_name" placeholder="Введите Имя Коробки"/>
+          <input required class="box_input mb8 fw100" type="text" name="box_name" placeholder="Введите Имя Коробки"/>
           <label for="box_name"></label>
           <br>
-          <input min="3" max="40" required class="box_input mb8" type="number" name="user_amount" placeholder="Введите Количество Сант" />
-          <input class="box_input mb8" type="number" name="max_gift_cost" placeholder="Максимальная цена подарка"/>
+          <input min="3" max="40" required class="box_input mb8 fw100" type="number" name="user_amount" placeholder="Введите Количество Сант" />
+          <input class="box_input mb8 fw100" type="number" name="max_gift_cost" placeholder="Максимальная цена подарка"/>
           <br>
           <div id="radio_box" class="mb24">
               <input checked type="radio" name="box_type" id="logged" value="logged"><label for="logged">Обычная коробка</label>

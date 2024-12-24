@@ -18,6 +18,7 @@ Guard::only_guest();
 </head>
 <body>
   <div class="background">
+  <?php include_once('../php/header.php') ?>
     <div class="container">
             <h1 class="fs40 mb32 text_blur">Регистрация</h1>
             <form  class="form-1 mb60" method="POST" action="../php/register.php">
@@ -30,17 +31,19 @@ Guard::only_guest();
                 name="password"
                 placeholder="Пароль более 8 символов"
               />
-              <button class="btn-1 fs24">Подтвердить</button>
+              <button name="push_registration" class="btn-1 fs24">Подтвердить</button>
             </form>
     <?php
-    
-    $nickname = $_POST['nick'];
-    $email = $_POST['email'];
-    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-    $usr_data = ["name"=> $nickname,
-                 "email"=> $email,
-                 "password"=> $password];
-    echo Users::add($usr_data);
+    if (isset($_POST['push_registration'])) {
+
+      $nickname = $_POST['nick'];
+      $email = $_POST['email'];
+      $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+      $usr_data = ["name"=> $nickname,
+                   "email"=> $email,
+                   "password"=> $password];
+      echo Users::add($usr_data);
+    }
     ?>
           </div>
 

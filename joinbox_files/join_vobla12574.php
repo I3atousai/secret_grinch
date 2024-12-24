@@ -19,8 +19,8 @@ require_once "../model/Logged_Box.php";
     <div class="background">
         <?php include_once('../php/header.php') ?>
         <?php  
-        $box_id_to_add =44;
-$join_hash ="2y10R25YCJMLHJ0aucnYGcgOilFmAHOFnajG6jmhU6vpEVFDTGY8UO";
+        $box_id_to_add =11;
+$join_hash ="2y102SOdmocDsfw6IAULXXj8OQgOFRPpPw2NAhq2DksK8TyuWwBUFsmC";
 
 
 if (!isset($_SESSION['auth'])) {

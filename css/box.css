@@ -37,7 +37,6 @@ h1 {
     align-items: center;
     justify-content: center;
     color: var(--text_color);
-    font-weight: bold;
     font-size: 1.3rem;
     text-indent: 20px;
 }

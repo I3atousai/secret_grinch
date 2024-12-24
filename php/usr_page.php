@@ -9,6 +9,8 @@
     require_once "../model/Users.php";
     require_once "../model/Logged_Box.php";
     require_once "../model/UALB.php";
+    require_once "../model/Notifications.php";
+    require_once "../model/UBW.php";
     require_once "../Service/Guard.php";
     Guard::only_user();
     $nick = $_SESSION['auth']["nick"];
@@ -23,6 +25,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/usr_page.css">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
@@ -31,20 +34,38 @@
 </head>
 <body>
 <div class="background">
-    <style></style>
-
-        <?php include_once('../php/header.php') ?>
+        <?php include_once('../php/header.php');
+        // get notifications
+        $unseen_notifications = Notifications::query( get: ['note.text'], 
+        tables:['notifications as note'] ,
+        params:[
+            // ['status', '=', 0, 'system', "AND",], 
+            ['user_id', '=', $_SESSION['auth']['logged_user_id'], 'value'] ] );
+        ?>
         <main >
             <div id="snow-globe">
 
                 <div id="usr_desc">
+                    <button id="notification_button"  onclick="toggleVisibility(9999)" type="button">🔔</button>
+                        <div id="box_users_9999" class="usr_list">
+                            <?php 
+                            if (count($unseen_notifications) > 0){
+                                for ($i=0; $i < count($unseen_notifications); $i++) { ?>
+                                    <p><?php echo $unseen_notifications[$i]['text'] ?></p>
+                                    <hr>
+                                 <?php }  
+                            }else { ?>
+                            <p>Нет новых уведомлений</p>
+                            <?php } ?>
+                        </div>
                     <input type="file" id="avatar_input">
                     <img id="PFP" src="<?php  echo $_SESSION['auth']["profile_picture_path"] ?>" alt="pfp">
                      
-                    <h4 id="user_name" class="name"><?php echo $nick ?></h4>
+                    <h4 id="user_name" class="name arial"><?php echo $nick ?></h4>
+
                     <button id="commit_change_name" onclick="toggleVisibilityChange()" type="button">Изменить</button>
                     <form id="name_form" class="hidden" action="../php/usr_page.php" method="post">
-                        <input class="name" type="text" name="change_name" value="<?php echo $nick ?>"  id="change_name"/>
+                        <input class="name arial" type="text" name="change_name" value="<?php echo $nick ?>"  id="change_name"/>
                         <input type="submit" onclick="toggleVisibilityChange(), push_cahnges()" value="Подтвердить">
                     </form>
                 </div>
@@ -121,15 +142,15 @@
                     <div class="box_bottom">
 
                         <h3>
-                            <?php echo $boxes_arr[$i]["name"];?>
+                            <span class="arial"><?php echo $boxes_arr[$i]["name"];?></span>
                             <?php 
                              if ($boxes_arr[$i]['max_gift_cost']) { ?>
-                                <span class="fs12"><?php echo "Максимальная цена подарка: " . $boxes_arr[$i]['max_gift_cost'] ?></span>
+                                <span class="fs12 fw100"><?php echo "Максимальная цена подарка: " . $boxes_arr[$i]['max_gift_cost'] ?></span>
                                 
                              <?php }  ?>
                             
                         </h3>
-                        <h3 class="usr_count">
+                        <h3 class="usr_count fw100">
                             <?php echo "Кол.-во участников: " . $user_amount ?>
                         </h3>
                         <input type="button" onclick="toggleVisibility(<?php echo $i ?>)" class="usr_list_show" id="<?php echo "box_users_show_" . $i ?>" value="Санты" name="<?php echo "open_list" . $i ?>">

@@ -28,12 +28,8 @@ require_once "../model/UALB.php";
         ?>
 
 
-
-          
         <?php 
        
-
-            
                 ?>
                     <!-- this worked -->
                 <!-- <a href="../php/index.php?fugu=stream">index</a> -->
