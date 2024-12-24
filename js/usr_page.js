@@ -59,8 +59,9 @@ function toggleVisibility(box_number) {
     }
 }
 function toggleVisibilityChange() {
-  
+   element = document.getElementById('notification_button').classList.toggle('hidden');
    element = document.getElementById('user_name').classList.toggle('hidden');
+   element = document.getElementById('avatar_input').classList.toggle('hidden');
    element = document.getElementById('commit_change_name').classList.toggle('hidden');
    element = document.getElementById('name_form').classList.toggle('hidden');
    

@@ -14,7 +14,7 @@ Guard::only_guest();
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/register.css">
 
-    <title>Registration</title>
+    <title>Регистрация</title>
 </head>
 <body>
   <div class="background">

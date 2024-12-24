@@ -19,7 +19,7 @@ if(isset($_POST['send_results'])) {
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/quick_results.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
-    <title>Main page</title>
+    <title>Жеребьевка</title>
 </head>
 <body>
     <div class="background">

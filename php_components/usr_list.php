@@ -5,26 +5,7 @@
     ?>   
     <div class="config_box">
         <p class="founder_name mb8 arial"><?php echo $founder_name ?></p>
-            <?php 
-            if ($_SESSION['auth']['logged_user_id'] == $boxes_arr[$i]['founder_id']) {
-            ?>
-                <span class="config_box">
-                <a href="<?php echo ($join_link . "?join_hash=" . $boxes_arr[$i]['join_hash']) ?>">📜</a>
-            <form class="shuffle_form" action="../php/results.php" method="post">
-
-            <?php
-            if ($user_amount >= 3) { ?>
-                <a href="../php/quick_results.php"> <button class="list_config_button" type="submit"  
-                        name="shuffle_box"
-                            value="<?php echo $boxes_arr[$i]['id'] ?>" 
-                            id="<?php echo('shuffle_' . $i)?>"
-                >🎲<button/></a>
-           <?php } ?>
-            </form>
-
-
-
-            <button onclick="work_modal('modal_make_wish')" id="make_wish_btn" >✨</button>
+        <button onclick="work_modal('modal_make_wish')" class="list_config_button" id="make_wish_btn" >✨</button>
                 <div class="modal" id="modal_make_wish">
                     <div class="modal_bg"></div>
                     <div class="modal_content">
@@ -37,13 +18,22 @@
                         </form>
                     </div>
                 </div>
-
-
-
-            <?php  
-            
+            <?php 
+            if ($_SESSION['auth']['logged_user_id'] == $boxes_arr[$i]['founder_id']) {
             ?>
+                <span class="config_box">
+                <a class="emoji_button" href="<?php echo ($join_link . "?join_hash=" . $boxes_arr[$i]['join_hash']) ?>">📜</a>
+            <form class="shuffle_form" action="../php/results.php" method="post">
 
+            <?php
+            if ($user_amount >= 3) { ?>
+                <a href="../php/quick_results.php"> <button class="list_config_button" type="submit"  
+                        name="shuffle_box"
+                            value="<?php echo $boxes_arr[$i]['id'] ?>" 
+                            id="<?php echo('shuffle_' . $i)?>"
+                >🎲<button/></a>
+           <?php } ?>
+            </form>
             <?php 
                 if ($boxes_arr[$i]['closed_or_oped'] == 1) { ?>
                 <button onclick="toggleState(<?php echo $i ?>, 0, <?php echo $boxes_arr[$i]['id'] ?>)"
@@ -63,6 +53,7 @@
             </span>
             <?php
                 }  ?>
+                
         
     </div>    
     <?php

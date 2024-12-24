@@ -18,7 +18,7 @@ $usr_data = Users::get_by_name($nickname);
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/inner_box_logged.css">
-    <title>Inner Box</title>
+    <title>Создание Коробки</title>
 </head>
 <body>
 <div class="background">

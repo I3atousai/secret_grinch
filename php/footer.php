@@ -5,7 +5,7 @@
     <nav>
         <a href="../php/quick_box.php">Быстрая жеребьевка</a>
         <a href="../php/ideas.php">Идеи подарков</a>
-        <a href="../php/politics.php">Политика конфиденциальности</a>
+        <a href="../php/instructions.php">Инструкция</a>
     </nav>
     <div class="icons">
         <a href="https://www.facebook.com"><i class="fab fa-facebook-f"></i></a>

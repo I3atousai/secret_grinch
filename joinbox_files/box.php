@@ -13,7 +13,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/box.css">
-    <title>Box</title>
+    <title>Создание Коробки</title>
 </head>
 <body>
 <div class="background">

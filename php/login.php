@@ -14,7 +14,7 @@ Guard::only_guest();
     <link rel="stylesheet" href="../css/register.css">
     <link rel="stylesheet" href="../css/reset.css">
 
-    <title>Login Page</title>
+    <title>Вход</title>
 </head>
 <body>
 <div class="background">
@@ -22,7 +22,7 @@ Guard::only_guest();
 
   <div class="container">
           <h1 class="fs40 mb32 text_blur">Вход</h1>
-          <form  class="form-1 mb60" method="POST" action="../php/login.php">
+          <form  class="form-1" method="POST" action="../php/login.php">
             <input required class="mb8" type="text" name="nick" placeholder="Введите Псевдоним" />
             <input required
               class="mb8"
@@ -68,9 +68,6 @@ Guard::only_guest();
     } catch (\Throwable $th) {
     echo $th->getMessage();
   }
-  }
-  else {
-    echo "what even happened";
   }
   
   

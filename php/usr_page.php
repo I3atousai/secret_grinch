@@ -30,7 +30,7 @@
     <link rel="stylesheet" href="../css/usr_page.css">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <title>My Page</title>
+    <title>Моя Страница</title>
 </head>
 <body>
 <div class="background">
@@ -46,7 +46,12 @@
             <div id="snow-globe">
 
                 <div id="usr_desc">
-                    <button id="notification_button"  onclick="toggleVisibility(9999)" type="button">🔔</button>
+                    <button id="notification_button" class="emoji_button" onclick="toggleVisibility(9999)" type="button">
+                        <?php 
+                        if (count($unseen_notifications) > 0) { ?>
+                        <span id="attention"></span>
+                         <?php } ?>
+                        🔔</button>
                         <div id="box_users_9999" class="usr_list">
                             <?php 
                             if (count($unseen_notifications) > 0){
@@ -58,15 +63,15 @@
                             <p>Нет новых уведомлений</p>
                             <?php } ?>
                         </div>
-                    <input type="file" id="avatar_input">
+                    <input type="file" class="hidden" id="avatar_input">
                     <img id="PFP" src="<?php  echo $_SESSION['auth']["profile_picture_path"] ?>" alt="pfp">
                      
                     <h4 id="user_name" class="name arial"><?php echo $nick ?></h4>
 
-                    <button id="commit_change_name" onclick="toggleVisibilityChange()" type="button">Изменить</button>
+                    <button id="commit_change_name" onclick="toggleVisibilityChange()" type="button">✏</button>
                     <form id="name_form" class="hidden" action="../php/usr_page.php" method="post">
                         <input class="name arial" type="text" name="change_name" value="<?php echo $nick ?>"  id="change_name"/>
-                        <input type="submit" onclick="toggleVisibilityChange(), push_cahnges()" value="Подтвердить">
+                        <input class="arial" id="push_profile_change" type="submit" onclick="toggleVisibilityChange(), push_cahnges()" value="Подтвердить">
                     </form>
                 </div>
                 

@@ -56,7 +56,7 @@ main {
 }
 #change_name{
     font-weight: bold;
-    max-width: 350px;
+    max-width: 250px;
     background-color: transparent;
 }
 
@@ -141,7 +141,62 @@ box-shadow:inset 0px 5px 5px 0px rgba(92, 92, 92, 0.671);
 }
 
 .list_config_button{
-    background-color: var(--add_color_1);
+    margin-right: 4px;
+    font-size: 1.3rem;
+    background-color: transparent;
+    color: transparent;
+    text-shadow: 0 0 0 var(--text_color);
+}
+
+#commit_change_name {
+    background-color: transparent;
+    /* color: transparent; */
+    text-shadow: 0px 0px 0px var(--text_color);
+    transform: rotate(145deg);
+    font-size: 2rem
+}
+#commit_change_name:hover{
+    cursor: pointer;
+    color: red;
+}
+
+#avatar_input{
+    position: absolute;
+    transform: translateX(4rem);
+    margin-top: 2rem;
+}
+
+#push_profile_change{
+    background-color: transparent;
+    margin-top: 3rem;
+    font-size: 2rem;
+    color: var(--text_color);
+}
+
+#push_profile_change:hover{
+    color: var(--add_color_3);
+    cursor: pointer;
+}
+
+.emoji_button{
+    color: transparent;
+    background-color: transparent;
+    text-shadow: 0 0 0 var(--text_color);
+}
+
+#notification_button {
+    font-size: 2rem;
+}
+
+#attention{
+    position: absolute;
+    color: var(--add_color_3);
+    text-indent: 0.5rem;
+    width: 10px;
+    height: 10px;
+    background-color: var(--add_color_3);
+    border-radius: 50%;
+    z-index: 3;
 }
 
 .shuffle_form{
@@ -282,11 +337,6 @@ box-shadow:inset 0px 5px 5px 0px rgba(92, 92, 92, 0.671);
   }
 
 
-  #make_wish_btn {
-    background-color: var(--add_color_1);
-  }
-
-
   #question{
     color: var(--text_color);
     font-size: 1.4rem;
@@ -352,3 +402,17 @@ box-shadow:inset 0px 5px 5px 0px rgba(92, 92, 92, 0.671);
     top: 2em; /* Положение подсказки */
    }
 
+
+    footer {
+    width: 100%;
+    height: 3rem;
+    padding:10px 20px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    background-color: var(--add_color_3);
+    color: var(--add_color_1);
+    border-radius: 12px 12px 0 0;
+}
