@@ -5,7 +5,7 @@
     ?>   
     <div class="config_box">
         <p class="founder_name mb8 arial"><?php echo $founder_name ?></p>
-        <button onclick="work_modal('modal_make_wish')" class="list_config_button" id="make_wish_btn" >✨</button>
+        <button onclick="work_modal('modal_make_wish')" class="make_wish_btn" >✨</button>
                 <div class="modal" id="modal_make_wish">
                     <div class="modal_bg"></div>
                     <div class="modal_content">

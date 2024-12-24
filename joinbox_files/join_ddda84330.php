@@ -11,7 +11,7 @@ require_once "../model/Logged_Box.php";
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/joinbox_template.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <title>Main page</title>
 </head>
@@ -32,7 +32,7 @@ if (!isset($_SESSION['auth'])) {
             }
             else {
                 if (LB::get_one($box_id_to_add)['closed_or_oped'] == 0) {
-                    echo "Коробка закрыта, обратитесь к владельцу ссылки";
+                    echo "<h2 class=\"box_error\">Коробка закрыта, обратитесь к владельцу ссылки</h2>";
                 }
                 else {
                     $get = [

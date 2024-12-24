@@ -36,7 +36,7 @@
 <div class="background">
         <?php include_once('../php/header.php');
         // get notifications
-        $unseen_notifications = Notifications::query( get: ['note.text'], 
+        $unseen_notifications = Notifications::query( get: ['note.text, note.status'], 
         tables:['notifications as note'] ,
         params:[
             // ['status', '=', 0, 'system', "AND",], 
@@ -48,7 +48,7 @@
                 <div id="usr_desc">
                     <button id="notification_button" class="emoji_button" onclick="toggleVisibility(9999)" type="button">
                         <?php 
-                        if (count($unseen_notifications) > 0) { ?>
+                        if ($unseen_notifications[0]['status'] == 0) { ?>
                         <span id="attention"></span>
                          <?php } ?>
                         🔔</button>
