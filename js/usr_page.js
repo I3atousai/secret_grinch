@@ -138,6 +138,7 @@ function del_user_number_(i, u, user_id,  box_id,) {
   formDataDelUser.append("box_id", Number(box_id))
 
 
+  document.getElementById('pfp_'+String(i)+String(u)).classList.toggle('hidden')
   document.getElementById('user_number_'+String(i)+String(u)).classList.toggle('hidden')
   document.getElementById('del_user_number_'+String(i)+String(u)).classList.toggle('hidden')
   document.getElementById('hr_'+String(i)+String(u)).classList.toggle('hidden')

@@ -57,22 +57,6 @@
         
     </div>    
     <?php
-    
-            // SELECT users.name, wish, usr_id FROM `user_box_wish` JOIN users WHERE user_box_wish.id = 
-            //(SELECT  MAX(user_box_wish.id) FROM `user_box_wish` JOIN users WHERE box_id = 3 and users.id = 4) and box_id = 3 and users.id = user_box_wish.usr_id;
-            // $get = [
-            //     "ubw.wish",
-            // ];
-            // $tables = ["user_box_wish as ubw",
-            //             "users as u"];
-            // $params = [
-            //     ["ubw.id", "=", "(SELECT  MAX(user_box_wish.id) FROM `user_box_wish` JOIN users WHERE box_id =" . $boxes_arr[$i]['id'] . "and users.id =". $box_user['id'] . ")", "system", "AND"],
-            //     ["ubw.box_id", "=", $boxes_arr[$i]['id'], "value", "AND"],
-            //     ["u.id", "=", $box_user['id'], "value"],
-            // ];
-            //      $wish_usrid_username = LB::query(get:$get, tables:$tables, params:$params, unique:true) ;
-
-
 
     for ($u=0; $u < $user_amount; $u++) { 
         $user_to_get = $UABoxes_arr[$u]['user_id'];
@@ -89,7 +73,7 @@
         ];
              $wish = LB::query(get:$get, tables:$tables, params:$params, unique:true, fetch_mode:"one") ;
                 ?>
-            <img class="usr_pfp_list" src="<?php echo $box_user['profile_pic_path'] ?>" alt="pfp">
+            <img class="usr_pfp_list" id="<?php echo "pfp_".$i . $u ?>" src="<?php echo $box_user['profile_pic_path'] ?>" alt="pfp">
             <p class="usr_name_list" 
             
               <?php  if (isset($wish['wish'])) { ?>

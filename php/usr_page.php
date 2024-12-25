@@ -137,14 +137,16 @@
     ?>
     <div id="box_wrap" >
         <?php
-        
+        //box delete
+        for ($i=0; $i < $box_amount ; $i++) { 
+            include('../php_components/usr_list_upd.php');
+        }
         for ($i=0; $i < $box_amount+$box_amount_part ; $i++) { 
             if (isset($boxes_arr[$i]['join_link'])) {
                 $join_link = "../joinbox_files/join_" . $boxes_arr[$i]['join_link'];
             }
             // sql updates 
             include('../php_components/box_user_info_access.php');
-            include('../php_components/usr_list_upd.php');
 
             ?>
                 <div class="box">
@@ -181,6 +183,7 @@
 
             
                     }
+                    
                      ?>
 
     </div>

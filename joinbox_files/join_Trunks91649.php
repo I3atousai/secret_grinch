@@ -11,7 +11,7 @@ require_once "../model/Logged_Box.php";
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/joinbox_template.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <title>Main page</title>
 </head>
@@ -19,20 +19,19 @@ require_once "../model/Logged_Box.php";
     <div class="background">
         <?php include_once('../php_components/header.php') ?>
         <?php  
-        $box_id_to_add =9;
-$join_hash ="2y10Vw8gIUnbj7CeHXrNzqrjOQeg73QVkYf3V518ClMmO9o3zcKdfoy";
-
+        $box_id_to_add =30;
+$join_hash ="2y10FyHQKhHUb4qmWWCdTKWe1VVlFRCJKMK8Rqh3YeubAlB26Hram1u";
 
 if (!isset($_SESSION['auth'])) {
-            echo "Только зарегистрированные пользлватели могут присоеденяться к коробкам";
+            echo "<h2 class=\"box_error\">Только зарегистрированные пользлватели могут присоеденяться к коробкам</h2>";
         }
         else {
             if ($_GET['join_hash'] != $join_hash) {
-                echo "Ссылка повреждена";
+                echo "<h2 class=\"box_error\">Ссылка повреждена</h2>";
             }
             else {
                 if (LB::get_one($box_id_to_add)['closed_or_oped'] == 0) {
-                    echo "Коробка закрыта, обратитесь к владельцу ссылки";
+                    echo "<h2 class=\"box_error\">Коробка закрыта, обратитесь к владельцу ссылки</h2>";
                 }
                 else {
                     $get = [
@@ -46,7 +45,7 @@ if (!isset($_SESSION['auth'])) {
                     ];
         
                     if (count(UALB::query(get:$get, tables:$tables, params:$params)) >= 1) {
-                        echo "пользователь уже в коробке";
+                        echo "<h2 class=\"box_error\">Пользователь уже в коробке</h2>";
                     }
                     else {
                         
@@ -55,13 +54,13 @@ if (!isset($_SESSION['auth'])) {
                             "box_id"=> $box_id_to_add
                         ];
                         UALB::add($data_user_added);  
+                        header("Location:../php/usr_page.php");
                     }
                 }
             }
         }
         ?>
-        <?php // include_once('../php_components/footer.php') ;
-       // unset($_SESSION['sql_del'])?>
+        <?php  include_once('../php_components/footer.php') ?>
     </div>
 </body>
 </html>
