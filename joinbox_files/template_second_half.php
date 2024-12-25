@@ -36,7 +36,7 @@ if (!isset($_SESSION['auth'])) {
             }
         }
         ?>
-        <?php include_once('../php_components/footer.php') ?>
+        <?php // include_once('../php_components/footer.php') ?>
     </div>
 </body>
 </html>

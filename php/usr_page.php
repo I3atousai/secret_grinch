@@ -55,6 +55,8 @@
                         }?>
                         🔔</button>
                         <div id="box_users_9999" class="usr_list">
+                            
+                             <button  onclick="toggleVisibility(9999)" type="button">❌</button>
                             <?php 
                             if (count($unseen_notifications) > 0){
                                 for ($i=0; $i < count($unseen_notifications); $i++) { ?>
@@ -73,6 +75,7 @@
                     <button id="commit_change_name" onclick="toggleVisibilityChange()" type="button">✏</button>
                     <form id="name_form" class="hidden" action="../php/usr_page.php" method="post">
                         <input class="name arial" type="text" name="change_name" value="<?php echo $nick ?>"  id="change_name"/>
+                        <button id="commit_keep_name" onclick="toggleVisibilityChange()" type="button">✏</button>
                         <input class="arial" id="push_profile_change" type="submit" onclick="toggleVisibilityChange(), push_cahnges()" value="Подтвердить">
                     </form>
                 </div>

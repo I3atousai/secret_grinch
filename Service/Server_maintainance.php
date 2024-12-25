@@ -63,9 +63,6 @@ try {
                 ]);
             }
 
-
-
-
     }
 
 // Code below deletes boxes older than 30 days
@@ -118,6 +115,8 @@ for ($i=0; $i < $this_many_users; $i++) {
 print_r($used_pictures);
 
 
+
+//code below deletes unused profile pictures
 // Set the current working directory
 $directory = '../PFPictures/';
  
@@ -142,9 +141,6 @@ for ($i=0; $i < $pictures_in_folder; $i++) {
    // echo"search";
     echo"<br>";
 }
-
-
-
 Notifications::delete(params:[
     ["status", "=", 1]
 ]);

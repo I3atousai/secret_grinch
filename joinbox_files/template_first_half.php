@@ -17,6 +17,6 @@ require_once "../model/Logged_Box.php";
 </head>
 <body>
     <div class="background">
-        <?php include_once('../php/header.php') ?>
+        <?php include_once('../php_components/header.php') ?>
         <?php  
         

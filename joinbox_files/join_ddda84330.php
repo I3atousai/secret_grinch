@@ -17,7 +17,7 @@ require_once "../model/Logged_Box.php";
 </head>
 <body>
     <div class="background">
-        <?php include_once('../php/header.php') ?>
+        <?php include_once('../php_components/header.php') ?>
         <?php  
         $box_id_to_add =7;
 $join_hash ="2y10DNXW56e8tGr255mqim34nUaHb2ipBVH0DX3m66nFTe579kTXOy";
@@ -60,8 +60,8 @@ if (!isset($_SESSION['auth'])) {
             }
         }
         ?>
-        <?php include_once('../php/footer.php') ;
-        unset($_SESSION['sql_del'])?>
+        <?php // include_once('../php_components/footer.php') ;
+    //    unset($_SESSION['sql_del'])?>
     </div>
 </body>
 </html>
