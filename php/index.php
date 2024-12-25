@@ -14,7 +14,7 @@ session_start();
 </head>
 <body>
     <div class="background">
-        <?php include_once('../php/header.php'); ?>
+        <?php include_once('../php_components/header.php'); ?>
         <div id="index_grid">
             <div class="describtion_box">
                 <h2 class="mb16">Как это работает</h2>
@@ -45,7 +45,7 @@ session_start();
                 <img src="../img/screen00.png" alt="desc_img00">
             </div>
         </div>
-        <?php include_once('../php/footer.php')?>
+        <?php include_once('../php_components/footer.php')?>
     </div>
 </body>
 </html>

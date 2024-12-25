@@ -15,7 +15,7 @@ session_start()
 </head>
 <body>
     <div class="background">
-        <?php include_once('../php/header.php') ?>
+        <?php include_once('../php_components/header.php') ?>
        
         <div id="index_grid">
             <div class="describtion_box">
@@ -57,7 +57,7 @@ session_start()
         </div>
 
         
-        <?php include_once('../php/footer.php')?>
+        <?php include_once('../php_components/footer.php')?>
     </div>
     
       

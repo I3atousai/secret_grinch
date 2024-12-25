@@ -1,6 +1,6 @@
 <?php 
 session_start();
-
+// Этот файл только для тестирования, можно удалить
 require_once "../model/UALB.php";   
 ?>
 <!DOCTYPE html>
@@ -17,7 +17,7 @@ require_once "../model/UALB.php";
 </head>
 <body>
     <div class="background">
-        <?php include_once('../php/header.php') ;
+        <?php include_once('../php_components/header.php') ;
        echo $_GET['hell_of_a_ride'];
        echo $_GET['link'];
 
@@ -33,7 +33,7 @@ require_once "../model/UALB.php";
                 ?>
                     <!-- this worked -->
                 <!-- <a href="../php/index.php?fugu=stream">index</a> -->
-        <?php include_once('../php/footer.php')?>
+        <?php include_once('../php_components/footer.php')?>
     </div>
     
       

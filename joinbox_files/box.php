@@ -17,7 +17,7 @@ session_start();
 </head>
 <body>
 <div class="background">
-        <?php include_once('../php/header.php') ?>
+        <?php include_once('../php_components/header.php') ?>
         
 
 <form id="form_box" class="mb60" method="POST" action="../joinbox_files/box.php">
@@ -113,7 +113,7 @@ session_start();
             }
         ?>
 
-<?php include_once('../php/footer.php') ?>
+<?php include_once('../php_components/footer.php') ?>
 </div>
 </body>
 </html>

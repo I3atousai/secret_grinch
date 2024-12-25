@@ -22,7 +22,7 @@ $usr_data = Users::get_by_name($nickname);
 </head>
 <body>
 <div class="background">
-        <?php include_once('../php/header.php') ?>
+        <?php include_once('../php_components/header.php') ?>
         
         <h1 id="box_roof"><?php echo "Коробка " . $_SESSION['box']["box_name"] ?></h1>
         <form id="form_box" class="mb24" method="POST" action="../php/inner_box.php">
@@ -102,7 +102,7 @@ $usr_data = Users::get_by_name($nickname);
                 }
         ?>
 
-    <?php include_once('../php/footer.php') ?>
+    <?php include_once('../php_components/footer.php') ?>
     </div>
     <script src="../js/inner_box_logged.js"></script>
     <script src="../js/inner_box_logged_setfounder.js"></script>

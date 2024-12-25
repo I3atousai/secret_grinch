@@ -34,7 +34,7 @@
 </head>
 <body>
 <div class="background">
-        <?php include_once('../php/header.php');
+        <?php include_once('../php_components/header.php');
         // get notifications
         $unseen_notifications = Notifications::query( get: ['note.text, note.status'], 
         tables:['notifications as note'] ,
@@ -48,9 +48,11 @@
                 <div id="usr_desc">
                     <button id="notification_button" class="emoji_button" onclick="toggleVisibility(9999)" type="button">
                         <?php 
+                        if (isset($unseen_notifications[0])) {
                         if ($unseen_notifications[0]['status'] == 0) { ?>
                         <span id="attention"></span>
-                         <?php } ?>
+                         <?php } 
+                        }?>
                         🔔</button>
                         <div id="box_users_9999" class="usr_list">
                             <?php 
@@ -186,7 +188,7 @@
                 <input onclick="clearLocalStorage()" type="submit" value="Выйти" name="submit_exit" id="exit" class="btn-1 fs24"> </input>
         </form>
       
-        <?php include_once('../php/footer.php') ?>
+        <?php include_once('../php_components/footer.php') ?>
     </div>
 
     <script src="../js/usr_page.js"></script>

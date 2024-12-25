@@ -15,7 +15,7 @@ session_start()
 </head>
 <body>
     <div class="background">
-        <?php include_once('../php/header.php') ?>
+        <?php include_once('../php_components/header.php') ?>
     <div id="box_wrap">
         <div  onmouseleave="close_box(0)" class="box">
             <div class="box_top" id="box_top_0"></div>
@@ -99,7 +99,7 @@ session_start()
             </div>
         </div>
     </div>
-        <?php include_once('../php/footer.php')?>
+        <?php include_once('../php_components/footer.php')?>
     </div>
     
     <script src="../js/ideas.js"></script> 

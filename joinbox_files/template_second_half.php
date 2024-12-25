@@ -1,4 +1,3 @@
-<?php
 if (!isset($_SESSION['auth'])) {
             echo "<h2 class=\"add_box_error\">Только зарегистрированные пользлватели могут присоеденяться к коробкам</h2>";
         }
@@ -37,8 +36,7 @@ if (!isset($_SESSION['auth'])) {
             }
         }
         ?>
-        <?php include_once('../php/footer.php') ;
-        unset($_SESSION['sql_del'])?>
+        <?php include_once('../php_components/footer.php') ?>
     </div>
 </body>
 </html>

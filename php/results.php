@@ -23,7 +23,7 @@ if(isset($_POST['send_results'])) {
 </head>
 <body>
     <div class="background">
-        <?php include_once('../php/header.php') ?>
+        <?php include_once('../php_components/header.php') ?>
         
         <?php if (isset($_POST['shuffle_box'])) {
             $get = [
@@ -115,7 +115,7 @@ if(isset($_POST['send_results'])) {
                     }
                 ?>
             </div>
-        <?php include_once('../php/footer.php') ;
+        <?php include_once('../php_components/footer.php') ;
         ?>
     </div>
     <script src="../js/results.js"></script>

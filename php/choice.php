@@ -17,7 +17,7 @@ Guard::only_guest();
 </head>
 <body>
 <div class="background">
-<?php include_once('../php/header.php') ?>
+<?php include_once('../php_components/header.php') ?>
     <div class="container">
         <nav>
             <a class="fs24 bold" href="../php/register.php">Создать новый Аккаунт</a>
@@ -25,7 +25,7 @@ Guard::only_guest();
         </nav>
     </div>
 
-<?php include_once('../php/footer.php') ?>
+<?php include_once('../php_components/footer.php') ?>
 </div>
 </body>
 </html>

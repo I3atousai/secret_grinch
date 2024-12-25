@@ -18,7 +18,7 @@ Guard::only_guest();
 </head>
 <body>
 <div class="background">
-    <?php include_once('../php/header.php') ?>
+    <?php include_once('../php_components/header.php') ?>
 
   <div class="container">
           <h1 class="fs40 mb32 text_blur">Вход</h1>
@@ -33,6 +33,9 @@ Guard::only_guest();
             <button class="btn-1 fs24" name="submit">Подтвердить</button>
            
           </form>
+          <p id="initiate_password_recovery">
+            <a class="arial" href="../password_recovery/initiate_recovery.php">Забыли пароль?</a>
+          </p>
   <?php
   if (isset($_POST["submit"])) {
     
@@ -40,8 +43,6 @@ Guard::only_guest();
       $nickname = $_POST['nick'];
       
       $password = $_POST['password'];
-      echo $nickname;
-      echo $password;
       
       $usr_inp = ["name"=> $nickname,
                   "password"=> $password];
@@ -74,7 +75,7 @@ Guard::only_guest();
   ?>
         </div>
 
-    <?php include_once('../php/footer.php') ?>
+    <?php include_once('../php_components/footer.php') ?>
   </div>
 </body>
 </html>

@@ -18,13 +18,24 @@ input {
   
   h1 {
     text-align: center;
+    font-weight: 100;
     color:var(--text_color);
   }
 
   #failed_login_message{
     text-align: center;
     top:0;
-    color:var(--text_color_add);
+    color:var(--add_color_3);
+  }
+
+  #initiate_password_recovery {
+    font-weight: bold;
+    width: max-content;
+    margin: 0 auto;
+    color: var(--add_color_3);
+  }
+  #initiate_password_recovery:hover {
+    color: var(--text_color);
   }
 
   footer {
