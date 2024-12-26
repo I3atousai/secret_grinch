@@ -18,7 +18,7 @@ document.getElementById('btn_submit').onmouseover = function close_box() {
     
   let cover = document.getElementById('box_roof');
   cover.style.animationName = 'close_box';
-  cover.style.transitionTimingFunction = 'ease-out';
+  cover.style.transitionTimingFunction = 'ease-in';
   cover.style.animationFillMode = 'forwards';
     cover.style.animationDuration = '1.5s'
 
@@ -27,7 +27,7 @@ document.getElementById('btn_submit').onmouseleave = function open_box() {
     
   let cover = document.getElementById('box_roof');
   cover.style.animationName = 'open_box';
-  cover.style.transitionTimingFunction = 'ease-in';
+  cover.style.transitionTimingFunction = 'ease-out';
   cover.style.animationFillMode = 'forwards';
     cover.style.animationDuration = '1.5s'
 
