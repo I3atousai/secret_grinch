@@ -20,8 +20,8 @@ Guard::only_guest();
 <?php include_once('../php_components/header.php') ?>
     <div class="container">
         <nav>
-            <a class="fs24 bold" href="../php/register.php">Создать новый Аккаунт</a>
-            <a class="fs24 bold mb60" href="../php/login.php">Войти</a>
+            <a class="bold" href="../php/register.php">Создать новый Аккаунт</a>
+            <a class="bold mb60" href="../php/login.php">Войти</a>
         </nav>
     </div>
 

@@ -36,7 +36,7 @@
 <div class="background">
         <?php include_once('../php_components/header.php');
         // get notifications
-        $unseen_notifications = Notifications::query( get: ['note.text, note.status'], 
+        $unseen_notifications = Notifications::query( get: ["note.text, note.status"], 
         tables:['notifications as note'] ,
         params:[
             // ['status', '=', 0, 'system', "AND",], 

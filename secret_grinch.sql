@@ -36,7 +36,7 @@ CREATE TABLE `logged_box` (
   `max_gift_cost` int DEFAULT NULL,
   `closed_or_oped` tinyint(1) NOT NULL DEFAULT '1',
   `date_create` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
 
 --
 -- Дамп данных таблицы `logged_box`
@@ -64,7 +64,7 @@ CREATE TABLE `notifications` (
   `user_id` int NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '0',
   `date_create` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
 
 --
 -- Дамп данных таблицы `notifications`
@@ -154,7 +154,7 @@ CREATE TABLE `user_box_wish` (
   `box_id` int NOT NULL,
   `wish` text NOT NULL,
   `date_create` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
 
 --
 -- Дамп данных таблицы `user_box_wish`

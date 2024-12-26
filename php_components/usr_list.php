@@ -3,6 +3,7 @@
     include('../php_components/usr_list_upd.php');
     $founder_name = Users::get_one($boxes_arr[$i]['founder_id'])['name']
     ?>   
+    <button onclick="toggleVisibility(<?php echo $i ?>)" class="close_list_button" >Закрыть список</button>
     <div class="config_box">
         <p class="founder_name mb8 arial"><?php echo $founder_name ?></p>
         <button onclick="work_modal('modal_make_wish')" class="make_wish_btn" >✨</button>

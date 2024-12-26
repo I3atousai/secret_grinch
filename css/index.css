@@ -30,7 +30,7 @@
     border: 2px solid var(--text_color);
     max-width: 20rem;
     max-height: 15rem;
-    /* border-radius: 12px; */
+    border-radius: 12px;
     object-fit:fill;
 }
 
@@ -55,4 +55,16 @@ footer {
     background-color: var(--add_color_3);
     color: var(--add_color_1);
     border-radius: 12px 12px 0 0;
+}
+
+/* id="instruction_link" */
+
+
+@media only screen and (max-width: 600px) {
+#instruction_link {
+    font-size: 1rem;
+}
+.describtion_box img {
+    display: block;
+}
 }

@@ -141,6 +141,23 @@ for ($i=0; $i < $pictures_in_folder; $i++) {
    // echo"search";
     echo"<br>";
 }
+
+
+//code below deletes old password recovery files 
+// Set the current working directory
+$directory = '../password_recovery/';
+// Initialize filecount variable
+$filecount = 0;
+$files2 = glob( $directory ."*.php"  );
+if( $files2 ) {
+    $filecount = count($files2);
+}
+ 
+echo "this many files" . $files_in_folder = count($files2) . "<br>";
+for ($i=0; $i < $files_in_folder; $i++) { 
+        unlink($files2[$i]);
+} 
+
 Notifications::delete(params:[
     ["status", "=", 1]
 ]);
