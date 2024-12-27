@@ -278,6 +278,7 @@ box-shadow:inset 0px 5px 5px 0px rgba(92, 92, 92, 0.671);
     font-weight: bold;
 }
 .close_list_button{
+    font-size: 0.7rem;
     background-color: transparent;
     color: var(--add_color_3);
     border: 2px solid var(--add_color_3);
@@ -414,16 +415,16 @@ box-shadow:inset 0px 5px 5px 0px rgba(92, 92, 92, 0.671);
     max-width: max-content;
     width: 8rem; /*min Ширина подсказки */
     left: 0;
-    top: 0; /* Положение подсказки */
-    background: var(--add_color_1); /* Синий цвет фона */
+    top: 0; 
+    background-color: var(--add_color_1);
     color: var(--text_color); /* Цвет текста */
+    border: 2px solid var(--text_color);
     padding: 0.5em; /* Поля вокруг текста */
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Параметры тени */
     pointer-events: none; /* Подсказка */
+    border: 2px solid var(--text_color);
     opacity: 0; /* Подсказка невидима */
     transition: 1s; /* Время появления подсказки */
     border-radius: 12px;
-    border: 2px solid var(--text_color);
     z-index: 3;
    } 
    [data-tooltip]:hover::after {
@@ -458,9 +459,8 @@ box-shadow:inset 0px 5px 5px 0px rgba(92, 92, 92, 0.671);
         font-size: 1rem;
     }
     
-
     #box_wrap{
-        width: 15rem;
+        width: 12rem;
         margin:10% auto !important;
         grid-template-columns: 12rem;
         margin: 0;
@@ -474,11 +474,19 @@ box-shadow:inset 0px 5px 5px 0px rgba(92, 92, 92, 0.671);
         font-size: 0.8rem !important;
     }
     .usr_list {
+        font-weight: 100;
         width: 80vw;
     }
-     .usr_list button{ 
+     .usr_list button:not(.close_list_button){ 
+        font-size: 2rem !important;
+    }
+    .close_list_button {
+        
         font-size: 1rem !important;
     }
+     /* .config_box button{ 
+        font-size: 2rem !important;
+    } */
     .config_box, main a,  .usr_list p, .emoji_button {
         font-size: 2rem !important;
     }
@@ -487,42 +495,34 @@ box-shadow:inset 0px 5px 5px 0px rgba(92, 92, 92, 0.671);
         margin: 0 10px;
     }
 
-        .config_box {
-            column-gap: 10px;
-        }
-    
+    .config_box {
+        column-gap: 10px;
+    }
 
-        [data-tooltip]::after{content: attr(data-tooltip); /* Выводим текст */
-            position: relative; /* Абсолютное позиционирование */
-            max-width: 12rem; /*min Ширина подсказки */
-            background: var(--add_color_1); /* Синий цвет фона */
-            color: var(--text_color); /* Цвет текста */
-            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Параметры тени */
-            pointer-events: none; /* Подсказка */
-            opacity: 1; /* Подсказка невидима */
-            border-radius: 12px;
-            z-index: 3;
-            font-size: 1rem !important;
-        }
-        
-            [data-tooltip]:hover::after {
-             top: 0;
-            }
-    /* a {
+    .founder_name {
+        text-indent: 8px;
+    }
+    [data-tooltip]::after{content: attr(data-tooltip); /* Выводим текст */
+        position: relative; /* Абсолютное позиционирование */
+        max-width: 12rem; /*min Ширина подсказки */
+        background: transparent; /* Синий цвет фона */
+        border: 0;
+        /* box-shadow: 0; */
+        color: var(--text_color); /* Цвет текста */
+        pointer-events: none; /* Подсказка */
+        opacity: 1; /* Подсказка невидима */
+        border-radius: 12px;
+        z-index: 3;
         font-size: 1rem !important;
-    } */
+    }
+        
+    [data-tooltip]:hover::after {
+        top: 0;
+    }
+
+    #exit {
+        font-size: 1rem;
+    }
 }
 
-/* .usr_list {
-    display: none;
-    padding: 10px 5px;
-    margin-left: -10% !important;
-    margin-top: 5% !important;
-    border-radius: 8px;
-    position: absolute;
-    width: 10rem;
-    background-color:bisque;
-    color: var(--text_color);
-    font-weight: bold;
-} */
 

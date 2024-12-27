@@ -3,7 +3,9 @@
 <footer>
     <h2>Secret Grinch</h2>
     <nav>
-        <a href="../php/quick_box.php">Быстрая жеребьевка</a>
+        <?php if (isset($_SESSION['auth'])) { ?>
+            <a href="../joinbox_files/box.php">Создать коробку</a>
+       <?php } ?>
         <a href="../php/ideas.php">Идеи подарков</a>
         <a href="../php/instructions.php">Инструкция</a>
     </nav>

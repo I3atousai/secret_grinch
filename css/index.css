@@ -67,4 +67,7 @@ footer {
 .describtion_box img {
     display: block;
 }
+#first_image{
+    margin-left: 0;
+}
 }

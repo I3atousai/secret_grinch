@@ -25,3 +25,11 @@ footer {
     position: absolute;
     bottom: 0;
 }
+
+
+@media only screen and (max-width: 600px) {
+  .box_error{
+    margin-top:50%;
+    font-size: 1.5rem;
+  }
+}

@@ -69,3 +69,31 @@ footer {
     color: var(--add_color_1);
     border-radius: 12px 12px 0 0;
 }
+
+
+@media only screen and (max-width: 600px) {
+    .background{
+        background-color: var(--add_color_1) !important;
+        background-image: none;
+    }
+    #quick_grid{
+        column-gap: 30%;
+        margin: 10% 20% 10% 10%;
+        place-content: center;
+    }
+.participants h2, p{
+    font-size: 1.8rem;
+    z-index: 3;
+}
+.participants{
+    background-color: transparent;
+ border: 0;
+    border-radius: 0;
+}
+.result_button{
+    max-width: min-content;
+    text-wrap: wrap;
+    border: 2px solid var(--text_color);
+}
+
+}

@@ -39,6 +39,7 @@
     animation-name: appearance;
     animation-duration: 1.5s;
     overflow-x:hidden;
+    z-index: -4;
   }
   
   a {
@@ -227,6 +228,15 @@ footer p {
     *{
       font-size: 60%;
     }
+    h1{  
+      font-size: 3rem !important;
+    }
+    .text_blur{
+      text-shadow:none;
+    }
+    .bold{
+      font-weight: 100;
+    }
     .describtion_box {
       width: 100% !important;
     }
@@ -251,9 +261,12 @@ footer p {
     font-size: 1rem;
    }
    header nav a{
-    font-size: 1.1rem;
-    max-width: 75px;
-    padding: 0 5px;
+    font-size: 0.8rem;
+    max-width: 55px;
+    padding: 0 15px ;
+    color: var(--add_color_1);
+    border: 0;
+    background-color: transparent ;
    }
    #index_grid{
     width: 95% !important;

@@ -65,3 +65,21 @@ footer {
     color: var(--add_color_1);
     border-radius: 12px 12px 0 0;
 }
+@media only screen and (max-width: 600px) {
+#form_box input::-moz-placeholder, #form_box input, #form_box label, #form_box input::placeholder{
+    font-size: 1rem;
+    text-indent: 10px;
+    font-weight: 100;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+}

@@ -21,7 +21,7 @@ session_start()
             <div class="box_top" id="box_top_0"></div>
             <div onmouseover="open_box(0)" class="box_bottom">
                 <img id="box_content_0"  src="../img/sales/gosLing.webp" alt="">
-                <figcaption class="item_name box_content_0">Футболка Гос Линг</figcaption>
+                <p class="item_name box_content_0">Футболка Гос Линг</p>
                 <p class="price">837р.</p>
                 <a class="item_link" target="_blank" href="https://ozon.ru/t/KYa3jl1">Купить</a>
             </div>
@@ -30,7 +30,7 @@ session_start()
             <div class="box_top" id="box_top_1"></div>
             <div onmouseover="open_box(1)" class="box_bottom">
                 <img src="../img/sales/gosLing1.webp" alt="">
-                <figcaption class="item_name">Акриловая фигурка</figcaption>
+                <p class="item_name">Акриловая фигурка</p>
                 <p class="price">622р.</p>
                 <a class="item_link" target="_blank" href="https://ozon.ru/t/5o1JVzn">Купить</a>
             </div>
@@ -39,7 +39,7 @@ session_start()
             <div class="box_top" id="box_top_2"></div>
             <div onmouseover="open_box(2)" class="box_bottom">
                 <img src="../img/sales/gosLing2.webp" alt="">
-                <figcaption class="item_name">Наклейка на карту</figcaption>
+                <p class="item_name">Наклейка на карту</p>
                 <p class="price">385р.</p>
                 <a class="item_link" target="_blank" href="https://ozon.ru/t/LzZpXA5">Купить</a>
             </div>
@@ -48,7 +48,7 @@ session_start()
             <div class="box_top" id="box_top_3"></div>
             <div onmouseover="open_box(3)" class="box_bottom">
                 <img src="../img/sales/gosLing3.webp" alt="">
-                <figcaption class="item_name">Футболка Поспать мне</figcaption>
+                <p class="item_name">Футболка Поспать мне</p>
                 <p class="price">1130р.</p>
                 <a class="item_link" target="_blank" href="https://ozon.ru/t/bZx9ZRo">Купить</a>
             </div>
@@ -57,7 +57,7 @@ session_start()
             <div class="box_top" id="box_top_4"></div>
             <div onmouseover="open_box(4)" class="box_bottom">
                 <img src="../img/sales/gosLing4.webp" alt="">
-                <figcaption class="item_name">Кружка Гослинг</figcaption>
+                <p class="item_name">Кружка Гослинг</p>
                 <p class="price">962р.</p>
                 <a class="item_link" target="_blank" href="https://ozon.ru/t/vlvZKZ2">Купить</a>
             </div>
@@ -66,7 +66,7 @@ session_start()
             <div class="box_top" id="box_top_5"></div>
             <div onmouseover="open_box(5)" class="box_bottom">
                 <img src="../img/sales/gosLing5.webp" alt="">
-                <figcaption class="item_name">Кружка в Форме</figcaption>
+                <p class="item_name">Кружка в Форме</p>
                 <p class="price">744р.</p>
                 <a class="item_link" target="_blank" href="https://ozon.ru/t/OxMVz9b">Купить</a>
             </div>
@@ -75,7 +75,7 @@ session_start()
             <div class="box_top" id="box_top_6"></div>
             <div onmouseover="open_box(6)" class="box_bottom">
                 <img src="../img/sales/gosLing6.webp" alt="">
-                <figcaption class="item_name">Акриловые серьги</figcaption>
+                <p class="item_name">Акриловые серьги</p>
                 <p class="price">447р.</p>
                 <a class="item_link" target="_blank" href="https://ozon.ru/t/1pExwKa">Купить</a>
             </div>
@@ -84,7 +84,7 @@ session_start()
             <div class="box_top" id="box_top_7"></div>
             <div onmouseover="open_box(7)" class="box_bottom">
                 <img src="../img/sales/gosLing7.webp" alt="">
-                <figcaption class="item_name">Маска картонная</figcaption>
+                <p class="item_name">Маска картонная</p>
                 <p class="price">332р.</p>
                 <a class="item_link" target="_blank" href="https://ozon.ru/t/Wj5rgBE">Купить</a>
             </div>
@@ -93,7 +93,7 @@ session_start()
             <div class="box_top" id="box_top_8"></div>
             <div onmouseover="open_box(8)" class="box_bottom">
                 <img src="../img/sales/gosLing8.webp" alt="">
-                <figcaption class="item_name">Картина на стену</figcaption>
+                <p class="item_name">Картина на стену</p>
                 <p class="price">747р.</p>
                 <a class="item_link" target="_blank" href="https://ozon.ru/t/ZbqyL38">Купить</a>
             </div>
